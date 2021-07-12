@@ -11,6 +11,9 @@
 # production
 /build
 
+# files
+*/features/counter
+
 # misc
 .DS_Store
 .env.local

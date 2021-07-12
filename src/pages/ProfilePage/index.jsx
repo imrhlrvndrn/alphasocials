@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../features/theme/themeSlice';
+import { selectTheme } from '../../features/theme/theme.slice';
 
 // components
 import { PostLayout } from '../../layouts/PostLayout';

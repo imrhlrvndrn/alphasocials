@@ -2,7 +2,6 @@
 import { HomeIcon } from '../react_icons/HomeIcon';
 import { LikeIcon } from '../react_icons/LikeIcon';
 import { SearchIcon } from '../react_icons/SearchIcon';
-import { FriendsIcon } from '../react_icons/FriendsIcon';
 import { ProfileIcon } from '../react_icons/ProfileIcon';
 import { CommentIcon } from '../react_icons/CommentIcon';
 import { BookmarkIcon } from '../react_icons/BookmarkIcon';
@@ -35,7 +34,7 @@ export const sidebarItems = [
         name: 'Profile',
         Icon: ProfileIcon,
         isActive: false,
-        link: '/profile',
+        link: '/auth',
     },
 ];
 

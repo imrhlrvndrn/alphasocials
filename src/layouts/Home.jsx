@@ -1,6 +1,8 @@
 import { useSelector } from 'react-redux';
+import { selectTheme } from '../features/theme/theme.slice';
+
+// components
 import { Sidebar } from '../components/Sidebar';
-import { selectTheme } from '../features/theme/themeSlice';
 
 export const HomeLayout = ({ children }) => {
     const theme = useSelector(selectTheme);

@@ -22,6 +22,8 @@
     --font-md: 1.2rem;
     --font-lg: 1.5rem;
     --font-xl: 2rem;
+    --font-2xl: 4rem;
+    --font-4xl: 6rem;
 }
 
 * {
@@ -46,7 +48,6 @@ button {
     align-items: center;
     padding: 0.5rem 1rem 0.5rem 0.5rem;
     width: max-content;
-    /* border-radius: var(--br-30); */
     background-color: var(--darkest);
 }
 
@@ -547,6 +548,18 @@ input {
     position: fixed;
 }
 
+.block {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
 .overflow-hidden {
     overflow: hidden;
 }
@@ -603,7 +616,7 @@ input {
     transition: 1s all ease-in-out;
 }
 
-.w-max {
+.wmax {
     width: max-content;
 }
 
@@ -676,7 +689,7 @@ input {
     height: auto;
 }
 
-.h-max {
+.hmax {
     height: max-content;
 }
 
@@ -759,6 +772,26 @@ input {
 
 .m-0 {
     margin: 0;
+}
+
+.m-auto {
+    margin: auto;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.mb-auto {
+    margin-bottom: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
 }
 
 .ml-n-1 {
@@ -1246,6 +1279,26 @@ input {
 .my-16 {
     margin-top: 4rem;
     margin-bottom: 4rem;
+}
+
+.p-auto {
+    padding: auto;
+}
+
+.pt-auto {
+    padding-top: auto;
+}
+
+.pb-auto {
+    padding-bottom: auto;
+}
+
+.pl-auto {
+    padding-left: auto;
+}
+
+.pr-auto {
+    padding-right: auto;
 }
 
 .p-0 {
@@ -1752,6 +1805,14 @@ input {
     font-size: var(--font-xl);
 }
 
+.text-2xl {
+    font-size: var(--font-2xl);
+}
+
+.text-4xl {
+    font-size: var(--font-4xl);
+}
+
 .font-light {
     font-weight: 200;
 }
@@ -1780,7 +1841,7 @@ input {
     font-weight: 400;
 }
 
-.font-weight-md {
+font-weight-md {
     font-weight: 600;
 }
 

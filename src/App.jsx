@@ -1,18 +1,30 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, Fragment } from 'react';
+import { selectModal } from './features/modal/modal.slice';
+import { verifyToken } from './features/user/user.requests';
+import { Route, Routes, Navigate } from 'react-router-dom';
 
 // styles
 import './styles/global.scss';
 
 // components
 import { HomeLayout } from './layouts';
-import { Feed, SearchPage, ProfilePage } from './pages';
+import { PrivateRoute } from './components/PrivateRoute';
+import { Feed, SearchPage, ProfilePage, AuthPage } from './pages';
 
 function App() {
+    const dispatch = useDispatch();
+    const modal = useSelector(selectModal);
+
+    useEffect(() => {
+        dispatch(verifyToken());
+    }, []);
+
     return (
-        <Router>
+        <Fragment>
             <Routes>
-                <Route exact path='/' element={<Navigate to='/feed' replace={true} />} />
-                <Route
+                <PrivateRoute exact path='/' element={<Navigate to='/feed' replace={true} />} />
+                <PrivateRoute
                     exact
                     path='/feed'
                     element={
@@ -21,7 +33,7 @@ function App() {
                         </HomeLayout>
                     }
                 />
-                <Route
+                <PrivateRoute
                     exact
                     path='/bookmarks'
                     element={
@@ -39,7 +51,7 @@ function App() {
                         </HomeLayout>
                     }
                 />
-                <Route
+                <PrivateRoute
                     exact
                     path='/profile'
                     element={
@@ -48,8 +60,10 @@ function App() {
                         </HomeLayout>
                     }
                 />
+                <Route exact path='/auth' element={<AuthPage />} />
             </Routes>
-        </Router>
+            {modal.isActive && <modal.modal />}
+        </Fragment>
     );
 }
 

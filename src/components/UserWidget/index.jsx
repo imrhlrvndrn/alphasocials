@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { selectTheme } from '../../features/theme/themeSlice';
+import { selectTheme } from '../../features/theme/theme.slice';
 
 export const UserWidget = ({ full_name = 'Rahul Ravindran', username = 'imrhlrvndrn' }) => {
     const theme = useSelector(selectTheme);

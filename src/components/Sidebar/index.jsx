@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { sidebarItems } from '../../constants';
 import {
     selectTheme,
-    selectThemeStatus,
     enableDarkMode,
     disableDarkMode,
-} from '../../features/theme/themeSlice';
+    selectThemeStatus,
+} from '../../features/theme/theme.slice';
 
 // styles
 import './nav.scss';

@@ -29,11 +29,9 @@ const darkTheme = {
 };
 
 const initialState = {
-    theme: lightTheme,
-    status: 'light',
+    theme: darkTheme,
+    status: 'dark',
 };
-
-const isLightTheme = (status) => status === 'light';
 
 export const themeSlice = createSlice({
     name: 'theme',

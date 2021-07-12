@@ -1,9 +1,9 @@
-export const BookmarkIcon = ({ color = 'currentColor', size = 24 }) => {
+export const BookmarkIcon = ({ color = 'currentColor', size = 24, bookmarked = false }) => {
     return (
         <svg
             stroke={color}
-            fill={color}
-            strokeWidth='0'
+            fill={bookmarked ? color : 'none'}
+            strokeWidth={bookmarked ? 0 : 1.2}
             viewBox='0 0 16 16'
             height={size}
             width={size}
