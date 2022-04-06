@@ -15,7 +15,10 @@ export const userSlice = createSlice({
     initialState,
     reducers: {
         modifyUser: (state, action) => {
-            state.user = action.payload.user;
+            Object.keys(action.payload.user).forEach((key) => {
+                if (key in state.user) state.user[key] = action.payload.user[key];
+                return;
+            });
         },
     },
     extraReducers: {
@@ -51,7 +54,7 @@ export const userSlice = createSlice({
         },
         [signUpUser.rejected]: (state, action) => {
             state.status = 'error';
-            state.error = action.payload.error.response.message;
+            state.error = action.payload.message;
         },
         [signUpUser.pending]: (state) => {
             state.error = null;
@@ -67,7 +70,7 @@ export const userSlice = createSlice({
         },
         [signUpUser.rejected]: (state, action) => {
             state.status = 'error';
-            state.error = action.payload.error.response.message;
+            state.error = action.payload.message;
         },
         [me.pending]: (state) => {
             state.error = null;
@@ -84,7 +87,7 @@ export const userSlice = createSlice({
         },
         [me.rejected]: (state, action) => {
             state.status = 'error';
-            state.error = action.payload.error.response.message;
+            state.error = action.payload.message;
         },
         [verifyUsername.pending]: (state) => {
             state.status = 'loading';
@@ -105,10 +108,12 @@ export const userSlice = createSlice({
         [verifyUsername.rejected]: (state, action) => {
             state.status = 'error';
             state.is_valid_username = false;
-            state.error = action.payload.error.response.message;
+            state.error = action.payload.message;
         },
     },
 });
+
+export const { modifyUser } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;
 export const selectError = (state) => state.user.error;

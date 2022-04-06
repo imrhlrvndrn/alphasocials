@@ -20,24 +20,23 @@ export const FeedPosts = () => {
         dispatch(loadPosts());
     }, []);
 
-    useEffect(() => {}, [posts]);
-
     console.log('Feedpage posts => ', posts);
 
     if (postStatus === 'loading')
         return <p className='mt-8 text-align-center text-lg'>Loading posts</p>;
 
-    if (postError) return <NoPosts errorMessage={postError} />;
+    if (postError || !posts.length)
+        return <NoPosts errorMessage={postError || 'No posts to show'} />;
 
     return (
         <>
             {posts?.length > 0 &&
                 posts?.map((post) => (
                     <PostLayout key={post._id}>
-                        <Post>
+                        <Post postId={post._id}>
                             <PostHeader data={post} />
                             <PostContent postId={post._id} content={post.content} />
-                            <PostStatistics stats={post.stats} />
+                            <PostStatistics stats={post.stats} postId={post._id} />
                         </Post>
                         <CommentForm />
                     </PostLayout>

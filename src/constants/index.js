@@ -41,17 +41,17 @@ export const sidebarItems = [
 export const postStatistics = [
     {
         _id: '1',
-        name: 'comments',
-        Icon: CommentIcon,
-    },
-    {
-        _id: '2',
         name: 'likes',
         Icon: LikeIcon,
     },
     {
-        _id: '3',
-        name: 'bookmarks',
-        Icon: BookmarkIcon,
+        _id: '2',
+        name: 'comments',
+        Icon: CommentIcon,
     },
+    // {
+    //     _id: '3',
+    //     name: 'bookmarks',
+    //     Icon: BookmarkIcon,
+    // },
 ];
